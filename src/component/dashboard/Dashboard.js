@@ -14,8 +14,10 @@ class Dashboard extends Component {
   }
   componentDidMount(){
     axios.get('/api/properties').then((res) =>{
+      console.log(res);
+      
       this.setState({
-        movies:res.data
+        houses: res.data
       })
     })
   }
@@ -27,6 +29,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
           <h1>Dashboard</h1>
+          {properties}
           <House properties= {properties}/>
           <Link to='/wizard'><button className='btn'>Add New Property</button></Link>
 

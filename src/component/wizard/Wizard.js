@@ -90,7 +90,7 @@ addProperty(){
                         <input className = "input" onChange = {(e) => this.addZip(e.target.value)}/>
                         
                         <br/> 
-                        <button className ="btn" onClick = {() => this.addProperty()}>Add</button>
+                        <button className ="btn" onClick = {() => this.addProperty()}>Complete</button>
                         <button className ="btn" onClick = {() => this.clearInput()}>Cancel </button>
 
     

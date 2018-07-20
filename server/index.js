@@ -21,7 +21,10 @@ require('dotenv').config();
 
 
 app.use(bodyParser.json());
-app.get('/api/properties', ct.getAll)
+
+app.get('/api/properties', ct.getAll);
+app.post('/api/property', ct.create);
+app.delete('/api/property/:id', ct.delete);
 
 
 
