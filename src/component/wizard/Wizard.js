@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 // import './App.css';
 
@@ -13,7 +14,57 @@ class Wizard extends Component {
       state: '',
       zip: ''
     }
+
+this.addPropertyName = this.addPropertyName.bind(this);
+this.addAddress = this.addAddress.bind(this);
+this.addCity = this.addCity.bind(this);
+this.addState = this.addState.bind(this);
+this.addZip = this.addZip.bind(this);
+this.addProperty = this.addProperty.bind(this);
+
   }
+  addPropertyName(val){
+    this.setState({
+        name: val
+    })
+}
+  addAddress(val){
+    this.setState({
+        address: val
+    })
+}
+  addCity(val){
+    this.setState({
+        city: val
+    })
+}
+  addState(val){
+    this.setState({
+        state: val
+    })
+}
+  addZip(val){
+    this.setState({
+        zip: val
+    })
+}
+clearInput(){
+    this.setState({
+        name:'', address:'', city:'', state: '', zip: ''
+    })
+}
+addProperty(){
+    const newProperty = {
+        name: this.state.name,
+        address:this.state.price,
+        city: this.state.imageurl,
+        state: this.state.imageurl,
+        zip: this.state.imageurl
+    }
+    axios.post('/api/property', newProperty).then((res) =>{
+        this.setState({houses: res.data})
+    })
+}
   render() {
     return (
       <div className="wizard">
@@ -39,8 +90,8 @@ class Wizard extends Component {
                         <input className = "input" onChange = {(e) => this.addZip(e.target.value)}/>
                         
                         <br/> 
-                        <button className ="button" onClick = {() => this.addProperty()}>Add</button>
-                        <button className ="button" onClick = {() => this.clearInput()}>Cancel </button>
+                        <button className ="btn" onClick = {() => this.addProperty()}>Add</button>
+                        <button className ="btn" onClick = {() => this.clearInput()}>Cancel </button>
 
     
     

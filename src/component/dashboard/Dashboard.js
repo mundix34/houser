@@ -20,10 +20,14 @@ class Dashboard extends Component {
     })
   }
   render() {
+    const properties = this.state.houses.map((house, i) => (
+      <h3 key={ i }>{ house.property_name } { house.address } { house.city }{ house.state }{ house.zip }</h3>
+    ));
+
     return (
       <div className="dashboard">
           <h1>Dashboard</h1>
-          <House/>
+          <House properties= {properties}/>
           <Link to='/wizard'><button className='btn'>Add New Property</button></Link>
 
         

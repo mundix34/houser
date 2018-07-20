@@ -3,11 +3,12 @@ const bodyParser = require('body-parser');
 const app = express();
 const massive = require('massive');
 const ct = require('./controller');
+require('dotenv').config();
+
 // const session = require('express-session');
 
 
-require('dotenv').config();
-const {PORT, CONNECTION} = process.env;
+
 
 // const checkSess = require('./middlewares/checkForSession');//middleware
 
@@ -43,13 +44,14 @@ app.get('/api/properties', ct.getAll)
 
 
 
+const {PORT, CONNECTION} = process.env;
 
-// massive(process.env.CONNECTION.then(dbSet => {    
+massive(CONNECTION).then(dbSet => {    
     
-//     app.set('db', dbSet)
-// }).catch(err => console.log(err)
-// )
-// )
+    app.set('db', dbSet)
+}).catch(err => console.log(err)
+)
+
 
 
 app.listen(PORT, () => {
