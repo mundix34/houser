@@ -21,6 +21,7 @@ this.addCity = this.addCity.bind(this);
 this.addState = this.addState.bind(this);
 this.addZip = this.addZip.bind(this);
 this.addProperty = this.addProperty.bind(this);
+this.deleteProperty = this.deleteProperty.bind(this);
 
   }
   addPropertyName(val){
@@ -65,7 +66,13 @@ addProperty(){
         this.setState({houses: res.data})
     })
 }
-
+deleteProperty(id){
+    axios.delete(`/api/property${id}`).then((res) =>{      
+      this.setState({
+        houses: res.data
+      })
+    })
+  }
   render() {
     return (
       <div className="wizard">

@@ -4,6 +4,8 @@ return (
     <div>
     <h1> House</h1>
     <h3>{ props.properties}</h3>
+    <button className ="btn" onClick = {() => props.getProp()}>View Properties </button>
+
     </div>
         
     

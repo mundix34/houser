@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Dashboard from './component/dashboard/Dashboard';
-import Wizard from './component/wizard/Wizard';
+// import Dashboard from './component/dashboard/Dashboard';
+// import Wizard from './component/wizard/Wizard';
 import Header from './component/header/Header';
 import {Link} from 'react-router-dom';
 import route from './route'
