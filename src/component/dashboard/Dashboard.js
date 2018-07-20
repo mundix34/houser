@@ -49,6 +49,8 @@ this.getProperties = this.getProperties.bind(this);
           <h1>Dashboard</h1>
           {properties}
           <House properties= {properties} getProp= {this.getProperties}/>
+          <button className ="btn" onClick = {() => this.deleteProperty()}>Delete Property </button>
+
           <Link to='/wizard'><button className='btn'>Add New Property</button></Link>
 
         

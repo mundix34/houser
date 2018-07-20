@@ -7,8 +7,8 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
+.header {
+  background-color: #519872;
   height: 150px;
   padding: 20px;
   color: white;
@@ -28,4 +28,13 @@
 }
 .links, .btn, .links, .input{
   margin: 3px;
+}
+.form{
+  background-color: #DEDEDE;
+}
+.body{
+  background-color: #AFD4C0;
+  height: 800px;
+  width: 100%;
+  
 }

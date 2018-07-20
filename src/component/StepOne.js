@@ -2,82 +2,16 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-// import './App.css';
+import './App.css';
 
 class Wizard extends Component {
-  constructor(){
-    super()
-    this.state = {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: ''
-    }
+  
 
-this.addPropertyName = this.addPropertyName.bind(this);
-this.addAddress = this.addAddress.bind(this);
-this.addCity = this.addCity.bind(this);
-this.addState = this.addState.bind(this);
-this.addZip = this.addZip.bind(this);
-this.addProperty = this.addProperty.bind(this);
-this.deleteProperty = this.deleteProperty.bind(this);
-
-  }
-  addPropertyName(val){
-    this.setState({
-        name: val
-    })
-}
-  addAddress(val){
-    this.setState({
-        address: val
-    })
-}
-  addCity(val){
-    this.setState({
-        city: val
-    })
-}
-  addState(val){
-    this.setState({
-        state: val
-    })
-}
-  addZip(val){
-    this.setState({
-        zip: val
-    })
-}
-clearInput(){
-    this.setState({
-        name:'', address:'', city:'', state: '', zip: ''
-    })
-}
-addProperty(){
-    const newProperty = {
-        name: this.state.name,
-        address:this.state.price,
-        city: this.state.imageurl,
-        state: this.state.imageurl,
-        zip: this.state.imageurl
-    }
-    axios.post('/api/property', newProperty).then((res) =>{
-        this.setState({houses: res.data})
-    })
-}
-deleteProperty(id){
-    axios.delete(`/api/property${id}`).then((res) =>{      
-      this.setState({
-        houses: res.data
-      })
-    })
-  }
   render() {
     return (
-      <div className="wizard">
-          <h1>Wizard</h1>
-          <form>
+      <div className="wizard one">
+          <h1>Add New Listing 1</h1>
+          <form className = "form">
                         <label> Property Name</label>
                         <input className = "input" onChange = {(e) => this.addPropertyName(e.target.value)}/>
                         <br/>
@@ -104,7 +38,7 @@ deleteProperty(id){
     
     
                     </form>
-          <Link to='/'><button className='btn'>Cancel</button></Link>
+          <Link to='/'><button className='btn'>Cancel/To Dashboard</button></Link>
 
         
       </div>
@@ -112,4 +46,4 @@ deleteProperty(id){
   }
 }
 
-export default Wizard;
+export default StepOne;

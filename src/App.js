@@ -10,13 +10,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Header/>
-
-        <nav>
+        <header className = "header">
+      <Header/> 
+      <nav>
         <Link to="/" className='links'>Dashboard</Link> 
         <Link to="/wizard" className='links'>Wizard</Link>
         </nav>
+      </header>
+      <div className ="body">
+       
         { route }
+        </div>
 
       </div>
     );
