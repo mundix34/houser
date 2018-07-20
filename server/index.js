@@ -20,6 +20,7 @@ const {PORT, CONNECTION} = process.env;
 
 
 app.use(bodyParser.json());
+app.get('/api/properties', ct.getAll)
 
 
 
@@ -43,12 +44,12 @@ app.use(bodyParser.json());
 
 
 
-massive(process.env.CONNECTION.then(dbSet => {    
+// massive(process.env.CONNECTION.then(dbSet => {    
     
-    app.set('db', dbSet)
-}).catch(err => console.log(err)
-)
-)
+//     app.set('db', dbSet)
+// }).catch(err => console.log(err)
+// )
+// )
 
 
 app.listen(PORT, () => {
