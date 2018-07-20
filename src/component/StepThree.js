@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import './App.css';
+import { connect } from "react-redux";
+import { addMortgageAmount, addRent } from "../ducks/reducer";
 
-// import './App.css';
 
 class Wizard extends Component {
   
@@ -14,7 +16,7 @@ class Wizard extends Component {
           <h1>Add New Listing 3</h1>
           <form>
                         <label> Monthly Mortgage Amount</label>
-                        <input className = "input" onChange = {(e) => this.addMortgageAmount(e.target.value)}/>
+                        <input className = "input" onChange = {(e) => this.addMortgage(e.target.value)}/>
                         <br/>
                         
                         <label> Desired Monthly Rent</label>
@@ -36,4 +38,12 @@ class Wizard extends Component {
   }
 }
 
-export default StepThree;
+function mapStateToProps(state){
+  const {mortgage, rent} = state
+
+  return{
+      mortgage,
+      rent
+  }
+}
+export default connect(mapStateToProps, {addMortgage, addRent}) (StepThree) ; 

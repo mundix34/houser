@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-
 import './App.css';
+import { connect } from "react-redux";
+import { addPropertyName, addAddress, addCity, addState, addZip } from "../ducks/reducer";
+
 
 class Wizard extends Component {
   
@@ -13,23 +15,23 @@ class Wizard extends Component {
           <h1>Add New Listing 1</h1>
           <form className = "form">
                         <label> Property Name</label>
-                        <input className = "input" onChange = {(e) => this.addPropertyName(e.target.value)}/>
+                        <input className = "input" onChange = {(e) => this.props.addPropertyName(e.target.value)}/>
                         <br/>
                         
                         <label> Address</label>
-                         <input className = "input" onChange = {(e) => this.addAddress(e.target.value)}/>
+                         <input className = "input" onChange = {(e) => this.props.addAddress(e.target.value)}/>
 
                         <br/> 
                         <label> City</label>
-                        <input className = "input" onChange = {(e) => this.addCity(e.target.value)}/>
+                        <input className = "input" onChange = {(e) => this.props.addCity(e.target.value)}/>
                         
                         <br/> 
                         <label> State</label>
-                        <input className = "input" onChange = {(e) => this.addState(e.target.value)}/>
+                        <input className = "input" onChange = {(e) => this.props.addState(e.target.value)}/>
                         
                         <br/> 
                         <label> ZipCode</label>
-                        <input className = "input" onChange = {(e) => this.addZip(e.target.value)}/>
+                        <input className = "input" onChange = {(e) => this.props.addZip(e.target.value)}/>
                         
                         <br/> 
                         <button className ="btn" onClick = {() => this.addProperty()}>Complete</button>
@@ -46,4 +48,15 @@ class Wizard extends Component {
   }
 }
 
-export default StepOne;
+function mapStateToProps(state){
+    const {name, address, city, state, zip} = state
+
+    return{
+        name,
+         address, 
+         city, 
+         state, 
+         zip
+    }
+}
+export default connect(mapStateToProps, {addPropertyName, addAddress, addCity, addState, addZip}) (StepOne) ; 

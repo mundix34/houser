@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import './App.css';
+import { connect } from "react-redux";
+import { addImageUrl } from "../ducks/reducer";
 
-// import './App.css';
 
 class Wizard extends Component {
   
@@ -14,7 +16,7 @@ class Wizard extends Component {
           <h1>Add New Listing 2</h1>
           <form>
                         <label> Image URL</label>
-                        <input className = "input" onChange = {(e) => this.addImageUrl(e.target.value)}/>
+                        <input className = "input" onChange = {(e) => this.props.addImageUrl(e.target.value)}/>
                         <br/>
                         
                          
@@ -32,4 +34,11 @@ class Wizard extends Component {
   }
 }
 
-export default StepTwo;
+function mapStateToProps(state){
+  const {imageurl} = state
+
+  return{
+      imageurl
+  }
+}
+export default connect(mapStateToProps, {addImageUrl}) (StepTwo) ; 
