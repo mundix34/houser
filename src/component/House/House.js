@@ -1,9 +1,9 @@
 import React from 'react';
 export default function House (props){
 return (
-    <div>
+    <div className = "house">
     <h1> House</h1>
-    <h3>{ props.properties}</h3>
+    <p>{ props.properties}</p>
     <button className ="btn" onClick = {() => props.getProp()}>View Properties </button>
 
     </div>

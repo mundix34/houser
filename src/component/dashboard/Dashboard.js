@@ -41,7 +41,15 @@ this.getProperties = this.getProperties.bind(this);
   
   render() {
     const properties = this.state.houses.map((house, i) => (
-      <h3 key={ i }>{ house.property_name } { house.address } { house.city }{ house.state }{ house.zip }</h3>
+      <div className = "list" key={ i }>
+        <p> Property Name: { house.property_name } 
+        <button className = "btn-del"onClick={() => this.deleteProperty(house.id)}>X</button>
+           </p>
+        <p> Address: { house.address } </p>
+        <p> City: { house.city } </p>
+        <p> State: { house.state } </p>
+        <p> Zip Code: { house.zip } </p>
+        </div>
     ));
 
     return (

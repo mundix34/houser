@@ -1,5 +1,3 @@
-let houses = [];
-let id = 0;
 module.exports = {
     getAll: (req, res) => {
         const dbSet = req.app.get('db');
